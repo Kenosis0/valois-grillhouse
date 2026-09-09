@@ -4,48 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valois Grillhouse</title>
+  <meta name="description" content="Valois Grillhouse serves fire-kissed steaks, seafood, and warm hospitality in a refined rustic setting.">
+  <title>Valois Grillhouse | Fire, Flavor, Hospitality</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
   <header class="navbar">
-    <div class="logo-container">
-      <img src="assets/logo.png" alt="Valois Grillhouse Logo" class="logo">
-    </div>
+    <a class="brand" href="index.html" aria-label="Valois Grillhouse home">
+      <span class="brand-mark">VG</span>
+      <span class="brand-copy"><strong>Valois</strong><small>GRILLHOUSE</small></span>
+    </a>
     <nav>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#reservation">Reservation</a></li>
-        <li><a href="#catering">Catering</a></li>
-        <li><a href="#curbside">Valois's Curbside</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Our Menu</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="Reservation.html">Reservation</a></li>
+        <li><a href="Catering.html">Catering</a></li>
+        <li><a href="Valois's Curbside.html">Curbside</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Our Menu.html">Our Menu</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Contact.html">Contact</a></li>
       </ul>
     </nav>
+    <a class="nav-cta" href="Reservation.html">Book a table <span aria-hidden="true">&#8599;</span></a>
   </header>
 
   <main>
-    <section id="about" class="hero-section">
-      <div class="overlay"></div>
-      <div class="container hero-content">
-        <div class="portrait-box">
-          <img src="assets/images/Founder-Image.jpg" alt="Valois Grillhouse Founder" class="portrait">
+    <section class="home-hero">
+      <div class="hero-image"></div>
+      <div class="hero-shade"></div>
+      <div class="container home-hero-content">
+        <p class="eyebrow">Est. with fire and intention</p>
+        <h1>Gather around<br><em>the good stuff.</em></h1>
+        <p class="hero-lede">A neighborhood grillhouse for generous cuts, bright plates, and nights that stretch a little longer.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="Reservation.html">Reserve your table <span aria-hidden="true">&#8599;</span></a>
+          <a class="button button-quiet" href="Our Menu.html">Explore the menu <span aria-hidden="true">&#8594;</span></a>
         </div>
-        <div class="text-content">
-          <h1>About Us: Valois Grillhouse</h1>
-          <p>Welcome to Valois Grillhouse, where a deep-rooted passion for exceptional cuts meets the timeless art of
-            live-fire cooking.</p>
-          <p>Founded on the simple belief that great steak doesn't need to be complicated—just respected—we pride
-            ourselves on serving unforgettable meals in an atmosphere that feels both refined and comfortably rustic.
-          </p>
+        <div class="hero-note"><span class="rule"></span><span>Live-fire cooking<br>Tuesday - Sunday</span></div>
+      </div>
+    </section>
+
+    <section class="intro-band section-padding">
+      <div class="container split-intro">
+        <div>
+          <p class="eyebrow eyebrow-dark">The Valois point of view</p>
+          <h2>Simple ingredients.<br><em>Serious heat.</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p>Our kitchen follows the flame. Prime cuts are seasoned with restraint, vegetables meet the grill at their peak, and every plate is built to make the table feel like the best place in the room.</p>
+          <a class="text-link" href="About.html">Meet the people behind the fire <span aria-hidden="true">&#8594;</span></a>
         </div>
       </div>
     </section>
+
+    <section class="feature-section section-padding">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow eyebrow-dark">From the grill</p><h2>Worth arriving hungry for.</h2></div>
+          <a class="text-link" href="Our Menu.html">See the full menu <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-card-large">
+            <img src="assets/images/foods/Smoked Tomahawk.jpg" alt="Smoked tomahawk steak served on a wooden board">
+            <div class="feature-card-caption"><span>01</span><div><h3>Smoked Tomahawk</h3><p>Oak smoke, sea salt, house jus</p></div></div>
+          </article>
+          <article class="feature-card">
+            <img src="assets/images/foods/Charred Salmon Fillet.jpg" alt="Charred salmon fillet with fresh herbs">
+            <div class="feature-card-caption"><span>02</span><div><h3>Charred Salmon</h3><p>Lemon, herbs, grilled greens</p></div></div>
+          </article>
+          <article class="feature-card">
+            <img src="assets/images/foods/Steak Frites.jpg" alt="Steak frites with golden fries">
+            <div class="feature-card-caption"><span>03</span><div><h3>Steak Frites</h3><p>Garlic butter, crisp potatoes</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit-band">
+      <div class="container visit-content">
+        <div><p class="eyebrow">Come as you are</p><h2>Good food has<br><em>an open door.</em></h2></div>
+        <div class="visit-details"><p>Tuesday - Thursday, 5:00 - 10:00 PM<br>Friday - Saturday, 5:00 - 11:00 PM<br>Sunday, 4:00 - 9:00 PM</p><a class="button button-outline" href="Contact.html">Plan your visit <span aria-hidden="true">&#8599;</span></a></div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><span>Valois Grillhouse</span><span>Fire-kissed food. Thoughtful hospitality.</span><a href="Contact.html">Contact us &#8599;</a></div></footer>
 
 </body>
 
