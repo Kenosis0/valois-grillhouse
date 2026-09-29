@@ -2,8 +2,8 @@
 
 ## Section 1: Background of the Study
 
-**Problem:** Current restaurant information is distributed across multiple static pages; customer requests (reservations, catering, curbside orders) cannot be stored or processed.
-**Context:** There is a strong need for centralized information access and robust request management to handle incoming inquiries efficiently and professionally.
+**Problem:** Before the proposed system was implemented, restaurant information was distributed across multiple static pages, while customer requests (reservations, catering, curbside orders, and contact inquiries) could not be stored or processed centrally.
+**Context:** A centralized web-based request system is important because it gives customers a consistent way to submit information and gives the restaurant organized records for follow-up and operational management.
 
 ## Section 2: Statement of the Problem
 
@@ -54,19 +54,20 @@ graph TD
     B -->|Output| C["OUTPUT<br/>- Responsive Website<br/>- Accessible Information<br/>- Stored Requests<br/>- Customer Feedback<br/>- Operational Data"]
 ```
 
+**Explanation:** The inputs are restaurant information, service details, and customer form submissions. The system processes these inputs through HTML form presentation, client-side and server-side validation, REST API submission, and SQLite database storage. The outputs are an accessible responsive website, stored customer requests, and success or error feedback that supports restaurant follow-up.
+
 ## Section 6: Possible Research Variables
 
-**Independent Variables:**
-- User interface clarity (form labeling, instructions)
-- Form field organization and layout
-- Validation feedback quality (error message clarity)
-- Website navigation structure
-
-**Dependent Variables:**
-- User satisfaction with form submission process
-- Accuracy of submitted data (validation effectiveness)
-- Form completion rate (abandonment rate)
-- User perception of ease-of-use
+| Variable | Type | Possible Measurement or Evaluation |
+|----------|------|------------------------------------|
+| User interface clarity (form labeling and instructions) | Independent | User ratings from a usability questionnaire and observed completion errors |
+| Form field organization and layout | Independent | User ratings, completion time, and form abandonment rate |
+| Validation feedback quality | Independent | User ratings of error-message clarity and number of repeated invalid submissions |
+| Website navigation structure | Independent | Task-completion rate and time required to find a form or information page |
+| User satisfaction with form submission | Dependent | Likert-scale questionnaire score after completing a form |
+| Accuracy of submitted data | Dependent | Percentage of submissions accepted without missing or invalid required values |
+| Form completion rate | Dependent | Completed submissions divided by form starts, expressed as a percentage |
+| User perception of ease of use | Dependent | Average usability rating from participants |
 
 ## Section 7: Possible Research Questions
 
@@ -87,6 +88,7 @@ graph TD
 | Backend | Python | 3.8+ | Lightweight, readable, suitable for student projects |
 | Web Framework | Flask | 2.3.3 | Minimal, flexible, easy to understand |
 | Database | SQLite3 | 3.x | Local, zero-config, appropriate for single-server setup |
+| Hosting/Deployment | Render or comparable Python hosting platform | To be selected | Provides a deployment target for the Flask API; local development remains supported |
 | API Communication | RESTful API (JSON) | — | Standard web service pattern |
 | Package Manager | pip | — | Python standard for dependency management |
 | Version Control | Git | — | Repository already initialized |
@@ -96,11 +98,13 @@ graph TD
 
 | Table Name | Purpose | Primary Key | Fields |
 |-----------|---------|------------|--------|
-| **contact_inquiries** | Store customer contact messages | inquiry_id (INT) | inquiry_id, name, email, topic, message, status, created_at |
-| **reservations** | Store reservation requests | reservation_id (INT) | reservation_id, customer_name, email, phone, reservation_date, reservation_time, guest_count, occasion, status, created_at |
-| **catering_requests** | Store catering event inquiries | catering_id (INT) | catering_id, customer_name, email, event_date, guest_count, event_type, request_details, status, created_at |
-| **curbside_orders** | Store curbside pickup orders | order_id (INT) | order_id, customer_name, phone, pickup_time, order_details, status, created_at |
-| **menu_items** | Menu structure (future use) | menu_item_id (INT) | menu_item_id, name, category, description, price, image_path, is_available, created_at |
+| **contact_inquiries** | Store customer contact messages | `inquiry_id` (INTEGER, PK) | `name` TEXT, `email` TEXT, `topic` TEXT, `message` TEXT, `status` TEXT, `created_at` TIMESTAMP |
+| **reservations** | Store reservation requests | `reservation_id` (INTEGER, PK) | `customer_name` TEXT, `email` TEXT, `phone` TEXT, `reservation_date` TEXT, `reservation_time` TEXT, `guest_count` INTEGER, `occasion` TEXT, `status` TEXT, `created_at` TIMESTAMP |
+| **catering_requests** | Store catering event inquiries | `catering_id` (INTEGER, PK) | `customer_name` TEXT, `email` TEXT, `event_date` TEXT, `guest_count` INTEGER, `event_type` TEXT, `request_details` TEXT, `status` TEXT, `created_at` TIMESTAMP |
+| **curbside_orders** | Store curbside pickup orders | `order_id` (INTEGER, PK) | `customer_name` TEXT, `phone` TEXT, `pickup_time` TEXT, `order_details` TEXT, `status` TEXT, `created_at` TIMESTAMP |
+| **menu_items** | Menu structure (future use) | `menu_item_id` (INTEGER, PK) | `name` TEXT, `category` TEXT, `description` TEXT, `price` DECIMAL, `image_path` TEXT, `is_available` BOOLEAN, `created_at` TIMESTAMP |
+
+**Key relationship note:** The current schema uses independent request tables and does not define foreign keys. No foreign key is required for the present form-submission workflow; future customer accounts or staff-management features could introduce related user or staff tables and foreign-key relationships.
 
 ## Alignment Matrix: Problems → Objectives → Questions → Features → Database
 
