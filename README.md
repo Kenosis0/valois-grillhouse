@@ -4,20 +4,22 @@ A responsive restaurant website for Valois Grillhouse with integrated customer s
 
 ## Features
 
-- **Responsive Design** — Works on desktop, tablet, and mobile devices
-- **Contact Form** — Customers can submit contact inquiries
-- **Reservation Requests** — Book reservations online
-- **Catering Inquiries** — Request catering services
-- **Curbside Pickup Orders** — Place pickup orders
-- **Data Persistence** — All requests stored in SQLite database
-- **Form Validation** — Client-side and server-side validation
+- **Interactive Clickable Menu (`Our Menu.html`)** — 25 dishes & drinks across 5 categories; clicking any card opens a high-resolution Dish Detail Modal with ingredients, portion notes, pairings, and one-click order handoff
+- **Drinks & Bar Menu** — 7 signature cocktails, wine, and zero-proof refreshers with dedicated studio photography
+- **Dual-Currency Toggle (`$ USD` ↔ `₱ PHP`)** — Live price conversion between US Dollars and Philippine Pesos persisted via `localStorage`
+- **Combined Curbside Pickup & Home Delivery (`Valois's Curbside.html`)** — Customers can toggle between Curbside Pickup and Doorstep Delivery with dynamic delivery address and landmark fields
+- **Mobile Browser Compatibility** — Responsive hamburger menu drawer (`<= 820px`), mobile bottom-sheet modal, touch-friendly controls, and LAN/Wi-Fi support
+- **Contact, Reservation & Catering Forms** — Full client-side and server-side validation
+- **SQLite3 Data Persistence** — 6 relational tables (`contact_inquiries`, `reservations`, `catering_requests`, `curbside_orders`, `delivery_orders`, `menu_items`)
 
 ## Current Status
 
-✅ Frontend: Fully responsive and functional  
-✅ Backend: Implemented with Flask  
-✅ Database: SQLite with persistent storage  
-✅ Forms: Contact, Reservations, Catering, Curbside Pickup  
+✅ Frontend: Fully responsive across desktop & mobile browsers  
+✅ Interactive Menu: 25 clickable items (18 food dishes + 7 drinks) with Dish Detail Modal & USD/PHP toggle  
+✅ Backend: Implemented with Flask (`0.0.0.0:5000` with static & API serving)  
+✅ Database: SQLite3 with 6 tables and 25 seeded menu items  
+✅ Forms: Contact, Reservations, Catering, Curbside Pickup, and Home Delivery  
+✅ Defense Documentation: Available in [`docs/system-documentation.md`](docs/system-documentation.md) and [`docs/Valois_Grillhouse_Defense_Documentation.docx`](docs/Valois_Grillhouse_Defense_Documentation.docx)  
 
 ## Technology Stack
 
@@ -239,3 +241,30 @@ Submit a curbside pickup order.
   "data": {"order_id": 1}
 }
 ```
+
+### POST /api/delivery
+Submit a home delivery order.
+
+**Request:**
+```json
+{
+  "customer_name": "Maria Santos",
+  "phone": "0917-123-4567",
+  "delivery_address": "124 Ember Street, Apt 4B",
+  "delivery_time": "7:00 PM",
+  "order_details": "1x Prime Ribeye, 1x Old Fashioned",
+  "delivery_notes": "Leave at lobby reception"
+}
+```
+
+**Response (Success - 201):**
+```json
+{
+  "success": true,
+  "message": "Your delivery order has been received. We will prepare it fresh and deliver it to your address.",
+  "data": {"delivery_id": 1}
+}
+```
+
+### GET /api/menu
+Retrieve all 25 available food and drink menu items from the database.
