@@ -10,6 +10,7 @@ TABLES = [
     "reservations",
     "catering_requests",
     "curbside_orders",
+    "delivery_orders",
     "menu_items"
 ]
 

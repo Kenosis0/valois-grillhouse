@@ -1,11 +1,797 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Explore the Valois Grillhouse menu of prime steaks, seafood, fire-grilled plates, and seasonal sides."><title>Our Menu | Valois Grillhouse</title><link rel="stylesheet" href="styles.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the interactive Valois Grillhouse menu of prime steaks, seafood, fire-grilled plates, seasonal sides, and craft drinks with USD and PHP pricing.">
+  <title>Our Menu | Valois Grillhouse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <header class="navbar"><a class="brand" href="index.html" aria-label="Valois Grillhouse home"><span class="brand-mark">VG</span><span class="brand-copy"><strong>Valois</strong><small>GRILLHOUSE</small></span></a><nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="Reservation.html">Reservation</a></li><li><a href="Catering.html">Catering</a></li><li><a href="Valois's Curbside.html">Curbside</a></li><li><a href="About.html">About</a></li><li><a href="Our Menu.html" aria-current="page">Our Menu</a></li><li><a href="Gallery.html">Gallery</a></li><li><a href="Contact.html">Contact</a></li></ul></nav><a class="nav-cta" href="Reservation.html">Book a table <span aria-hidden="true">&#8599;</span></a></header>
+  <header class="navbar">
+    <a class="brand" href="index.html" aria-label="Valois Grillhouse home">
+      <span class="brand-mark">VG</span>
+      <span class="brand-copy"><strong>Valois</strong><small>GRILLHOUSE</small></span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Reservation.html">Reservation</a></li>
+        <li><a href="Catering.html">Catering</a></li>
+        <li><a href="Valois's Curbside.html">Curbside &amp; Delivery</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Our Menu.html" aria-current="page">Our Menu</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="Reservation.html">Book a table <span aria-hidden="true">&#8599;</span></a>
+  </header>
+
   <main>
-    <section class="page-hero" style="--page-image: url('assets/images/foods/Classic T-Bone.jpg')"><div class="container"><p class="eyebrow">The good part</p><h1>Come hungry.<br><em>Leave happy.</em></h1><p>Prime cuts, bright seafood, and fire-kissed sides made for passing across the table.</p></div></section>
-    <section class="content-section"><div class="container menu-layout"><div><section class="menu-category"><p class="eyebrow eyebrow-dark">From the grill</p><h2>Steaks</h2><article class="menu-item"><div><h3>Prime Ribeye</h3><p>Charcoal crust, roasted garlic butter, house jus</p></div><strong>$42</strong></article><article class="menu-item"><div><h3>Classic T-Bone</h3><p>Dry-aged, cracked pepper, rosemary jus</p></div><strong>$48</strong></article><article class="menu-item"><div><h3>Garlic Butter Tenderloin</h3><p>Silky butter, grilled shallot, sea salt</p></div><strong>$46</strong></article><article class="menu-item"><div><h3>Smoked Tomahawk</h3><p>Oak smoke, market weight, served to share</p></div><strong>$78</strong></article></section><section class="menu-category"><p class="eyebrow eyebrow-dark">From the sea</p><h2>Seafood</h2><article class="menu-item"><div><h3>Charred Salmon Fillet</h3><p>Lemon herb oil, grilled greens</p></div><strong>$32</strong></article><article class="menu-item"><div><h3>Garlic Butter Prawns</h3><p>Chili, parsley, toasted sourdough</p></div><strong>$28</strong></article></section></div><div><section class="menu-category"><p class="eyebrow eyebrow-dark">At the center</p><h2>From the fire</h2><article class="menu-item"><div><h3>Charcoal Pork Ribs</h3><p>Smoky glaze, pickled apple, herb salad</p></div><strong>$30</strong></article><article class="menu-item"><div><h3>Herb-Grilled Chicken</h3><p>Green peppercorn sauce, crispy skin</p></div><strong>$27</strong></article><article class="menu-item"><div><h3>Mixed Grill Platter</h3><p>Steak, ribs, prawns, house sauces</p></div><strong>$56</strong></article></section><section class="menu-category"><p class="eyebrow eyebrow-dark">To share</p><h2>Sides</h2><article class="menu-item"><div><h3>Steak Frites</h3><p>Garlic butter, parsley, sea salt</p></div><strong>$12</strong></article><article class="menu-item"><div><h3>Grilled Market Vegetables</h3><p>Seasonal vegetables, smoked lemon</p></div><strong>$10</strong></article><article class="menu-item"><div><h3>House Salad</h3><p>Baby greens, shaved radish, mustard vinaigrette</p></div><strong>$9</strong></article></section><p class="photo-caption">Please tell your server about allergies. Menu items and prices may change with the season.</p></div></div></section>
-  </main><footer class="site-footer"><div class="container footer-inner"><span>Valois Grillhouse</span><span>Fire-kissed food. Thoughtful hospitality.</span><a href="Contact.html">Contact us &#8599;</a></div></footer>
+    <section class="page-hero" style="--page-image: url('assets/images/foods/Legend/Classic T-Bone.jpg')">
+      <div class="container">
+        <p class="eyebrow">The good part</p>
+        <h1>Come hungry.<br><em>Leave happy.</em></h1>
+        <p>Prime cuts, bright seafood, fire-kissed sides, and craft pours. Click any dish or drink below to view its photograph and full culinary details.</p>
+      </div>
+    </section>
+
+    <!-- Sticky Category Filter & Currency Switcher Toolbar -->
+    <div class="menu-controls-bar" role="region" aria-label="Menu filters and currency options">
+      <div class="container menu-controls-inner">
+        <div class="category-tabs" role="tablist" aria-label="Filter menu by category">
+          <button type="button" class="category-tab active" data-filter="all" role="tab" aria-selected="true">All Menu</button>
+          <button type="button" class="category-tab" data-filter="steaks" role="tab" aria-selected="false">Steaks</button>
+          <button type="button" class="category-tab" data-filter="seafood" role="tab" aria-selected="false">Seafood</button>
+          <button type="button" class="category-tab" data-filter="fire" role="tab" aria-selected="false">From the Fire</button>
+          <button type="button" class="category-tab" data-filter="sides" role="tab" aria-selected="false">Sides</button>
+          <button type="button" class="category-tab" data-filter="drinks" role="tab" aria-selected="false">Drinks &amp; Bar</button>
+        </div>
+
+        <div class="currency-switcher-wrap">
+          <span class="currency-label">Currency:</span>
+          <div class="currency-toggle" role="group" aria-label="Toggle price currency between US Dollars and Philippine Pesos">
+            <button type="button" class="currency-btn active" data-currency="USD" id="btnUsd">$ USD</button>
+            <button type="button" class="currency-btn" data-currency="PHP" id="btnPhp">&#8369; PHP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content-section" style="padding-top: 10px;">
+      <div class="container">
+        <div class="menu-helper-banner">
+          <span><strong>Interactive Menu:</strong> Tap or click any dish or drink card to inspect its plated photo, ingredients, portion notes, and pairing suggestions.</span>
+          <span class="currency-rate-note" id="currencyRateBanner">Showing prices in US Dollars ($ USD) &middot; Toggle &#8369; PHP anytime</span>
+        </div>
+
+        <!-- STEAKS -->
+        <section class="menu-category-section" data-category="steaks" id="section-steaks">
+          <div class="menu-category-header">
+            <div>
+              <p class="eyebrow eyebrow-dark">From the grill</p>
+              <h2>Prime Steaks</h2>
+            </div>
+            <p>28-day aged cuts seared over seasoned white oak and glowing charcoal.</p>
+          </div>
+          <div class="menu-card-grid" id="grid-steaks"></div>
+        </section>
+
+        <!-- SEAFOOD -->
+        <section class="menu-category-section" data-category="seafood" id="section-seafood">
+          <div class="menu-category-header">
+            <div>
+              <p class="eyebrow eyebrow-dark">From the sea</p>
+              <h2>Coastal &amp; Seafood</h2>
+            </div>
+            <p>Line-caught fish and sweet shellfish finished with bright citrus and herb butter.</p>
+          </div>
+          <div class="menu-card-grid" id="grid-seafood"></div>
+        </section>
+
+        <!-- FROM THE FIRE -->
+        <section class="menu-category-section" data-category="fire" id="section-fire">
+          <div class="menu-category-header">
+            <div>
+              <p class="eyebrow eyebrow-dark">At the center</p>
+              <h2>From the Fire</h2>
+            </div>
+            <p>Slow-smoked ribs, herb-basted poultry, and generous platters built for the table.</p>
+          </div>
+          <div class="menu-card-grid" id="grid-fire"></div>
+        </section>
+
+        <!-- SIDES -->
+        <section class="menu-category-section" data-category="sides" id="section-sides">
+          <div class="menu-category-header">
+            <div>
+              <p class="eyebrow eyebrow-dark">To share</p>
+              <h2>Sides &amp; Greens</h2>
+            </div>
+            <p>Crisp potatoes, charred market produce, and bright garden greens.</p>
+          </div>
+          <div class="menu-card-grid" id="grid-sides"></div>
+        </section>
+
+        <!-- DRINKS -->
+        <section class="menu-category-section" data-category="drinks" id="section-drinks">
+          <div class="menu-category-header">
+            <div>
+              <p class="eyebrow eyebrow-dark">From the cellar &amp; bar</p>
+              <h2>Drinks, Cocktails &amp; Refreshers</h2>
+            </div>
+            <p>Smoky steakhouse classics, bold reserve pours, and zero-proof house coolers.</p>
+          </div>
+          <div class="menu-card-grid" id="grid-drinks"></div>
+        </section>
+
+        <p class="photo-caption">Please tell your server about food allergies. All steaks are cooked to your preferred temperature. Menu items and seasonal garnishes may vary.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Dish / Drink Detail Modal -->
+  <div class="dish-modal-backdrop" id="dishModalBackdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalDishTitle">
+    <div class="dish-modal" role="document">
+      <button type="button" class="dish-modal-close" id="modalCloseBtn" aria-label="Close dish details">&times;</button>
+      <div class="dish-modal-image-col">
+        <img id="modalDishImg" src="" alt="">
+      </div>
+      <div class="dish-modal-content-col">
+        <div class="dish-modal-meta">
+          <span class="dish-modal-category" id="modalDishCategory">Category</span>
+          <span class="menu-badge" id="modalDishBadge">Signature</span>
+        </div>
+        <div class="dish-modal-title-row">
+          <h2 id="modalDishTitle">Dish Name</h2>
+          <div class="dish-modal-price-box">
+            <span class="dish-modal-price-primary" id="modalDishPricePrimary">$0</span>
+            <span class="dish-modal-price-secondary" id="modalDishPriceSecondary">&#8369;0 PHP</span>
+          </div>
+        </div>
+        <p class="dish-modal-description" id="modalDishLongDesc"></p>
+        <div class="dish-modal-specs">
+          <div class="dish-spec-item">
+            <strong>Portion &amp; Preparation</strong>
+            <span id="modalDishPortion"></span>
+          </div>
+          <div class="dish-spec-item">
+            <strong>Key Ingredients</strong>
+            <span id="modalDishIngredients"></span>
+          </div>
+          <div class="dish-spec-item">
+            <strong>Recommended Pairing</strong>
+            <span id="modalDishPairing"></span>
+          </div>
+          <div class="dish-spec-item">
+            <strong>Dietary &amp; Notes</strong>
+            <span id="modalDishDietary"></span>
+          </div>
+        </div>
+        <div class="dish-modal-actions">
+          <a class="button button-primary" id="modalOrderBtn" href="Valois's Curbside.html#order">Order for Curbside / Delivery <span aria-hidden="true">&#8599;</span></a>
+          <button type="button" class="button button-quiet" id="modalCurrencySwitchBtn" style="color: var(--ink); border-color: var(--line);">Switch to &#8369; PHP</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Valois Grillhouse</span>
+      <span>Fire-kissed food. Thoughtful hospitality.</span>
+      <a href="Contact.html">Contact us &#8599;</a>
+    </div>
+  </footer>
+
+  <script src="backend/static/form-handler.js"></script>
+  <script>
+    const MENU_ITEMS = [
+      // STEAKS
+      {
+        id: "prime-ribeye",
+        categoryKey: "steaks",
+        categoryLabel: "Prime Steaks",
+        name: "Prime Ribeye",
+        usd: 42,
+        php: 2450,
+        badge: "Chef's Cut",
+        image: "assets/images/foods/Prime Ribeye.png",
+        shortDesc: "Charcoal crust, roasted garlic butter, house jus",
+        longDesc: "Our flagship 14 oz USDA Prime ribeye is richly marbled and seared over roaring white oak embers for a deep, smoky crust, then basted with slow-roasted garlic herb compound butter and served with bone-marrow house jus.",
+        portion: "14 oz (400g) boneless cut · Best medium-rare",
+        ingredients: "USDA Prime ribeye, roasted garlic butter, flaky sea salt, grilled asparagus, cremini mushrooms, beef jus",
+        pairing: "Cabernet Sauvignon or Old Fashioned",
+        dietary: "Gluten-Free · Contains Dairy"
+      },
+      {
+        id: "classic-t-bone",
+        categoryKey: "steaks",
+        categoryLabel: "Prime Steaks",
+        name: "Classic T-Bone",
+        usd: 48,
+        php: 2790,
+        badge: "28-Day Dry-Aged",
+        image: "assets/images/foods/Classic T-Bone.png",
+        shortDesc: "Dry-aged, cracked pepper, rosemary jus",
+        longDesc: "Two prized cuts on a single bone—combining the robust flavor of a New York strip with the buttery tenderness of a filet mignon. Dry-aged for 28 days and finished over hardwood coals with aromatic rosemary-peppercorn jus.",
+        portion: "18 oz (510g) bone-in cut · Great for hearty appetites",
+        ingredients: "Dry-aged T-bone steak, Tellicherry black pepper, fresh rosemary, roasted cherry tomatoes, red wine reduction",
+        pairing: "Cabernet Sauvignon",
+        dietary: "Gluten-Free · High Protein"
+      },
+      {
+        id: "garlic-butter-tenderloin",
+        categoryKey: "steaks",
+        categoryLabel: "Prime Steaks",
+        name: "Garlic Butter Tenderloin",
+        usd: 46,
+        php: 2680,
+        badge: "Most Tender",
+        image: "assets/images/foods/Garlic Butter Tenderloin.png",
+        shortDesc: "Silky butter, grilled shallot, sea salt",
+        longDesc: "Center-cut beef tenderloin prized for its melt-in-your-mouth texture. Pan-seared and finished over live coals with caramelized shallots, confit garlic butter, and Maldon sea salt flakes.",
+        portion: "9 oz (255g) center-cut filet · Best rare to medium",
+        ingredients: "Center-cut beef tenderloin, cultured garlic butter, charred shallots, fresh thyme, Maldon sea salt",
+        pairing: "Red Wine Sangria or Cabernet Sauvignon",
+        dietary: "Gluten-Free · Contains Dairy"
+      },
+      {
+        id: "smoked-tomahawk",
+        categoryKey: "steaks",
+        categoryLabel: "Prime Steaks",
+        name: "Smoked Tomahawk",
+        usd: 78,
+        php: 4550,
+        badge: "Table Centerpiece",
+        image: "assets/images/foods/Smoked Tomahawk.png",
+        shortDesc: "Oak smoke, market weight, served to share",
+        longDesc: "Our showstopping long-bone ribeye is cold-smoked over sweet oak before hitting the high-heat grill grates. Carved tableside on a warm slate board with coarse sea salt and charred rosemary.",
+        portion: "32 oz (900g) bone-in · Serves 2 to 3 guests",
+        ingredients: "Long-bone Prime Tomahawk ribeye, oak smoke infusion, coarse sea salt, fresh rosemary, house chimichurri & jus",
+        pairing: "Old Fashioned or Two Pours of Cabernet Sauvignon",
+        dietary: "Gluten-Free · Shareable Cut"
+      },
+      {
+        id: "black-pepper-striploin",
+        categoryKey: "steaks",
+        categoryLabel: "Prime Steaks",
+        name: "Black Pepper Striploin",
+        usd: 44,
+        php: 2560,
+        badge: "Steakhouse Classic",
+        image: "assets/images/foods/Black Pepper Striploin.png",
+        shortDesc: "Coarse peppercorn crust, brandy-pepper jus",
+        longDesc: "A bold New York striploin pressed in freshly cracked three-peppercorn blend and seared over open flames, accompanied by a velvety cognac-peppercorn pan reduction and charred scallions.",
+        portion: "12 oz (340g) boneless New York strip",
+        ingredients: "Prime striploin, black & green peppercorns, brandy cream reduction, sea salt, roasted garlic clove",
+        pairing: "Old Fashioned",
+        dietary: "Contains Dairy · Bold Spice"
+      },
+      {
+        id: "slow-grilled-short-ribs",
+        categoryKey: "steaks",
+        categoryLabel: "Prime Steaks",
+        name: "Slow-Grilled Short Ribs",
+        usd: 39,
+        php: 2280,
+        badge: "6-Hour Smoked",
+        image: "assets/images/foods/Slow-Grilled Short Ribs.png",
+        shortDesc: "Bone-in beef short ribs, espresso-chili glaze, pickled shallots",
+        longDesc: "Thick-cut bone-in beef short ribs smoked low and slow for six hours until fork-tender, then lacquered over live charcoal with our signature dark espresso-molasses glaze.",
+        portion: "14 oz bone-in beef short rib plate",
+        ingredients: "Beef chuck short ribs, espresso-chili glaze, pickled red shallots, micro herbs, smoked sea salt",
+        pairing: "Smoked Peach Iced Tea or Cabernet Sauvignon",
+        dietary: "Dairy-Free · Rich & Smoky"
+      },
+
+      // SEAFOOD
+      {
+        id: "charred-salmon-fillet",
+        categoryKey: "seafood",
+        categoryLabel: "Coastal & Seafood",
+        name: "Charred Salmon Fillet",
+        usd: 32,
+        php: 1860,
+        badge: "Omega-Rich",
+        image: "assets/images/foods/Charred Salmon Fillet.png",
+        shortDesc: "Lemon herb oil, grilled greens",
+        longDesc: "Sustainably sourced Atlantic salmon grilled skin-side down over hardwood embers for a shattering crisp skin and moist, flaky center. Dressed with Meyer lemon herb oil and charred seasonal greens.",
+        portion: "8 oz (225g) skin-on center fillet",
+        ingredients: "Atlantic salmon, cold-pressed lemon olive oil, dill, parsley, charred asparagus, blistered cherry tomatoes",
+        pairing: "Citrus Cooler or Classic Mojito",
+        dietary: "Gluten-Free · Dairy-Free · Pescatarian"
+      },
+      {
+        id: "garlic-butter-prawns",
+        categoryKey: "seafood",
+        categoryLabel: "Coastal & Seafood",
+        name: "Garlic Butter Prawns",
+        usd: 28,
+        php: 1630,
+        badge: "Guest Favorite",
+        image: "assets/images/foods/Garlic Butter Prawns.png",
+        shortDesc: "Chili, parsley, toasted sourdough",
+        longDesc: "Jumbo tiger prawns split and flame-grilled in their shells, bathed in sizzling garlic-chili butter, fresh flat-leaf parsley, and a squeeze of roasted lemon. Served with grill-toasted artisan sourdough.",
+        portion: "6 jumbo tiger prawns with grilled sourdough",
+        ingredients: "Wild tiger prawns, garlic butter, red chili flakes, flat-leaf parsley, lemon, sourdough bread",
+        pairing: "Classic Mojito or Berry Lemonade",
+        dietary: "Contains Shellfish, Dairy & Gluten"
+      },
+      {
+        id: "grilled-calamari",
+        categoryKey: "seafood",
+        categoryLabel: "Coastal & Seafood",
+        name: "Grilled Calamari",
+        usd: 24,
+        php: 1390,
+        badge: "Light & Bright",
+        image: "assets/images/foods/Grilled Calamari.png",
+        shortDesc: "Tender fire-kissed squid, charred lemon, smoked paprika oil",
+        longDesc: "Whole squid scored and flash-seared over white-hot coals for smoky char and tender bite, tossed with Spanish smoked paprika oil, capers, wild rocket, and charred lemon wedges.",
+        portion: "Generous appetizer or light main plate",
+        ingredients: "Fresh squid, extra-virgin olive oil, smoked paprika, garlic, lemon, wild arugula, sea salt",
+        pairing: "Citrus Cooler or Classic Mojito",
+        dietary: "Gluten-Free · Dairy-Free · Contains Mollusks"
+      },
+      {
+        id: "seafood-grill-platter",
+        categoryKey: "seafood",
+        categoryLabel: "Coastal & Seafood",
+        name: "Seafood Grill Platter",
+        usd: 64,
+        php: 3720,
+        badge: "For Sharing",
+        image: "assets/images/foods/Seafood Grill Platter.png",
+        shortDesc: "Charred salmon, tiger prawns, grilled calamari, herb butter",
+        longDesc: "An abundant coastal feast straight from the wood-fired grill: crispy-skinned salmon fillet, jumbo garlic-butter tiger prawns, and charred calamari accompanied by charred lemon and saffron aioli.",
+        portion: "Platter for 2 to 3 guests",
+        ingredients: "Atlantic salmon, jumbo tiger prawns, grilled calamari, lemon-herb butter, saffron aioli, grilled greens",
+        pairing: "Red Wine Sangria or Classic Mojito",
+        dietary: "Contains Fish, Shellfish & Dairy"
+      },
+
+      // FROM THE FIRE
+      {
+        id: "charcoal-pork-ribs",
+        categoryKey: "fire",
+        categoryLabel: "From the Fire",
+        name: "Charcoal Pork Ribs",
+        usd: 30,
+        php: 1750,
+        badge: "House Smoked",
+        image: "assets/images/foods/Charcoal Pork Ribs.png",
+        shortDesc: "Smoky glaze, pickled apple, herb salad",
+        longDesc: "St. Louis-style pork spare ribs dry-rubbed with brown sugar, smoked paprika, and black pepper, slow-smoked over fruitwood and finished over live coals with a tangy bourbon-apple glaze.",
+        portion: "Half-rack (600g) with crisp apple-herb slaw",
+        ingredients: "Pork spare ribs, apple cider-bourbon glaze, pickled crisp apple, fennel & parsley salad",
+        pairing: "Smoked Peach Iced Tea or Old Fashioned",
+        dietary: "Gluten-Free · Dairy-Free"
+      },
+      {
+        id: "herb-grilled-chicken",
+        categoryKey: "fire",
+        categoryLabel: "From the Fire",
+        name: "Herb-Grilled Chicken",
+        usd: 27,
+        php: 1570,
+        badge: "Free-Range",
+        image: "assets/images/foods/Herb-Grilled Chicken.png",
+        shortDesc: "Green peppercorn sauce, crispy skin",
+        longDesc: "Free-range half chicken marinated overnight in rosemary, thyme, crushed garlic, and lemon zest, brick-pressed on the open grill for golden crackling skin and served with creamy green peppercorn jus.",
+        portion: "Half boneless-style grilled chicken",
+        ingredients: "Free-range chicken, fresh garden herbs, garlic, lemon, green peppercorn pan sauce",
+        pairing: "Berry Lemonade or Red Wine Sangria",
+        dietary: "Gluten-Free · Contains Dairy"
+      },
+      {
+        id: "lamb-chops",
+        categoryKey: "fire",
+        categoryLabel: "From the Fire",
+        name: "Lamb Chops",
+        usd: 40,
+        php: 2320,
+        badge: "Pasture-Raised",
+        image: "assets/images/foods/Lamb Chops.png",
+        shortDesc: "Double-cut rack of lamb, rosemary-garlic crust, mint chimichurri",
+        longDesc: "Thick double-cut pasture-raised lamb rib chops crusted with crushed rosemary, garlic, and coriander seed, seared medium-rare over glowing coals and drizzled with vibrant garden mint chimichurri.",
+        portion: "3 double-cut lamb chops (11 oz total)",
+        ingredients: "Pasture-raised lamb rack, fresh rosemary, garlic, mint-parsley chimichurri, roasted cherry tomatoes",
+        pairing: "Cabernet Sauvignon or Red Wine Sangria",
+        dietary: "Gluten-Free · Dairy-Free"
+      },
+      {
+        id: "steakhouse-beef-skewers",
+        categoryKey: "fire",
+        categoryLabel: "From the Fire",
+        name: "Steakhouse Beef Skewers",
+        usd: 29,
+        php: 1690,
+        badge: "Open-Flame",
+        image: "assets/images/foods/Steakhouse Beef Skewers.png",
+        shortDesc: "Marinated tenderloin cubes, blistered peppers, red onion, chimichurri",
+        longDesc: "Hand-cut Prime beef tenderloin medallions threaded with sweet bell peppers and red onions, flame-charred to juicy perfection and served with house herb chimichurri.",
+        portion: "2 large steel skewers · Great solo or shared",
+        ingredients: "Beef tenderloin, red & yellow bell peppers, red onion, garlic-herb marinade, chimichurri",
+        pairing: "Old Fashioned or Smoked Peach Iced Tea",
+        dietary: "Gluten-Free · Dairy-Free"
+      },
+      {
+        id: "mixed-grill-platter",
+        categoryKey: "fire",
+        categoryLabel: "From the Fire",
+        name: "Mixed Grill Platter",
+        usd: 56,
+        php: 3250,
+        badge: "Feast for Two",
+        image: "assets/images/foods/Mixed Grill Platter.png",
+        shortDesc: "Steak, ribs, prawns, house sauces",
+        longDesc: "Can't decide? Enjoy the best of Valois on one board: sliced Prime striploin, charcoal-glazed pork ribs, and garlic butter tiger prawns served with trio of house sauces.",
+        portion: "Generous platter for 2 guests",
+        ingredients: "Prime striploin, pork ribs, jumbo tiger prawns, chimichurri, peppercorn jus, garlic herb butter",
+        pairing: "Red Wine Sangria or Cabernet Sauvignon",
+        dietary: "Contains Shellfish & Dairy"
+      },
+
+      // SIDES
+      {
+        id: "steak-frites",
+        categoryKey: "sides",
+        categoryLabel: "Sides & Greens",
+        name: "Steak Frites",
+        usd: 12,
+        php: 690,
+        badge: "Signature Side",
+        image: "assets/images/foods/Steak Frites.png",
+        shortDesc: "Garlic butter, parsley, sea salt",
+        longDesc: "Hand-cut Kennebec potatoes twice-cooked for a shatteringly crisp exterior and fluffy interior, tossed hot with roasted garlic butter, chopped flat-leaf parsley, and flaky sea salt.",
+        portion: "Shareable side bowl (serves 2)",
+        ingredients: "Kennebec potatoes, roasted garlic butter, flat-leaf parsley, sea salt",
+        pairing: "Pairs with any Prime Steak or Burger",
+        dietary: "Vegetarian · Gluten-Free"
+      },
+      {
+        id: "grilled-market-vegetables",
+        categoryKey: "sides",
+        categoryLabel: "Sides & Greens",
+        name: "Grilled Market Vegetables",
+        usd: 10,
+        php: 580,
+        badge: "Seasonal & Vegan",
+        image: "assets/images/foods/Grilled Market Vegetables.png",
+        shortDesc: "Seasonal vegetables, smoked lemon",
+        longDesc: "Peak-season farmer's market broccolini, asparagus spears, sweet bell peppers, and zucchini kissed by hardwood smoke and finished with extra-virgin olive oil and fire-roasted lemon.",
+        portion: "Shareable platter (serves 2)",
+        ingredients: "Broccolini, green asparagus, sweet peppers, zucchini, cold-pressed olive oil, smoked lemon",
+        pairing: "Charred Salmon Fillet or Herb-Grilled Chicken",
+        dietary: "Vegan · Gluten-Free · Dairy-Free"
+      },
+      {
+        id: "house-salad",
+        categoryKey: "sides",
+        categoryLabel: "Sides & Greens",
+        name: "House Salad",
+        usd: 9,
+        php: 520,
+        badge: "Crisp & Fresh",
+        image: "assets/images/foods/House Salad.png",
+        shortDesc: "Baby greens, shaved radish, mustard vinaigrette",
+        longDesc: "Crisp organic baby greens, paper-thin watermelon radish, heirloom cherry tomatoes, and cucumber ribbons dressed lightly in our tangy whole-grain Dijon and aged sherry vinaigrette.",
+        portion: "Individual or shareable starter salad",
+        ingredients: "Artisan baby greens, red radish, heirloom cherry tomatoes, cucumber, Dijon-sherry vinaigrette",
+        pairing: "Citrus Cooler or Berry Lemonade",
+        dietary: "Vegan · Gluten-Free · Dairy-Free"
+      },
+
+      // DRINKS (Items 24-30 from prompt)
+      {
+        id: "old-fashioned",
+        categoryKey: "drinks",
+        categoryLabel: "Signature Cocktails & Wine",
+        name: "Old Fashioned",
+        usd: 16,
+        php: 930,
+        badge: "Smoked Cocktail",
+        isDrink: true,
+        image: "assets/images/drinks/Old Fashioned.png",
+        shortDesc: "Small-batch bourbon, aromatic bitters, orange peel, subtle oak smoke",
+        longDesc: "Our signature steakhouse Old Fashioned crafted with aged Kentucky bourbon, Angostura and orange bitters, and demerara syrup, poured over a hand-carved crystal-clear ice block, expressed with fresh orange peel, and infused tableside with a whisper of charred oak smoke.",
+        portion: "Rocks pour in heavy crystal glass",
+        ingredients: "Small-batch Kentucky bourbon, aromatic bitters, demerara syrup, flamed orange peel, Luxardo cherry, oak smoke",
+        pairing: "Prime Ribeye, Smoked Tomahawk, or Black Pepper Striploin",
+        dietary: "Alcoholic (21+) · Gluten-Free · Vegan"
+      },
+      {
+        id: "red-wine-sangria",
+        categoryKey: "drinks",
+        categoryLabel: "Signature Cocktails & Wine",
+        name: "Red Wine Sangria",
+        usd: 14,
+        php: 820,
+        badge: "House Favorite",
+        isDrink: true,
+        image: "assets/images/drinks/Red Wine Sangria.png",
+        shortDesc: "Vibrant red wine, fresh citrus wheels, seasonal fruits, brandy splash",
+        longDesc: "A vibrant, ruby-red house sangria steeped with Spanish Garnacha red wine, aged brandy, fresh blood orange and Meyer lemon wheels, crisp orchard apple, and dark seasonal berries.",
+        portion: "Generous goblet pour over ice",
+        ingredients: "House red wine, Spanish brandy, fresh orange & lemon wheels, blackberries, blueberries, cinnamon hint",
+        pairing: "Mixed Grill Platter, Lamb Chops, or Seafood Grill Platter",
+        dietary: "Alcoholic (21+) · Contains Sulfites"
+      },
+      {
+        id: "classic-mojito",
+        categoryKey: "drinks",
+        categoryLabel: "Signature Cocktails & Wine",
+        name: "Classic Mojito",
+        usd: 14,
+        php: 820,
+        badge: "Crisp & Refreshing",
+        isDrink: true,
+        image: "assets/images/drinks/Classic Mojito.png",
+        shortDesc: "White rum, fresh green mint leaves, lime wedges, crushed ice",
+        longDesc: "Bright and invigorating Havana-style mojito built with smooth Caribbean white rum, gently muddled garden spearmint leaves, fresh-squeezed key lime juice, raw cane sugar, and lively club soda over mounded crushed ice.",
+        portion: "Tall highball glass over crushed ice",
+        ingredients: "Caribbean white rum, fresh spearmint leaves, fresh lime wedges, raw cane syrup, sparkling soda",
+        pairing: "Garlic Butter Prawns, Grilled Calamari, or Charred Salmon",
+        dietary: "Alcoholic (21+) · Gluten-Free · Vegan"
+      },
+      {
+        id: "cabernet-sauvignon",
+        categoryKey: "drinks",
+        categoryLabel: "Signature Cocktails & Wine",
+        name: "Cabernet Sauvignon",
+        usd: 15,
+        php: 870,
+        badge: "Cellar Reserve",
+        isDrink: true,
+        image: "assets/images/drinks/Cabernet Sauvignon.png",
+        shortDesc: "Full-bodied house pour, deep red berry notes, smooth oak finish",
+        longDesc: "Poured from our cellar reserve, this full-bodied Cabernet Sauvignon opens with lush aromas of blackcurrant, dark cherry, and toasted cedar, leading into structured tannins and a long, velvety French oak finish built to stand up to prime beef.",
+        portion: "6 oz (175ml) Bordeaux crystal glass pour",
+        ingredients: "100% Estate Cabernet Sauvignon grapes, aged 18 months in French oak barrels",
+        pairing: "Classic T-Bone, Prime Ribeye, or Garlic Butter Tenderloin",
+        dietary: "Alcoholic (21+) · Contains Sulfites"
+      },
+      {
+        id: "berry-lemonade",
+        categoryKey: "drinks",
+        categoryLabel: "Zero-Proof & Refreshers",
+        name: "Berry Lemonade",
+        usd: 8,
+        php: 460,
+        badge: "Zero-Proof",
+        isDrink: true,
+        image: "assets/images/drinks/Berry Lemonade.png",
+        shortDesc: "Sparkling lemonade mixed with fresh lemons and dark mixed berries",
+        longDesc: "House-pressed Meyer lemonade brightened with sparkling mineral water and swirled with a ruby compote of crushed blackberries, blueberries, and raspberries.",
+        portion: "14 oz tall chilled highball · Refillable",
+        ingredients: "Fresh-squeezed lemon juice, muddled blackberries, blueberries, raspberries, cane sugar, sparkling water",
+        pairing: "Herb-Grilled Chicken, Steak Frites, or House Salad",
+        dietary: "Non-Alcoholic · Vegan · Caffeine-Free"
+      },
+      {
+        id: "smoked-peach-iced-tea",
+        categoryKey: "drinks",
+        categoryLabel: "Zero-Proof & Refreshers",
+        name: "Smoked Peach Iced Tea",
+        usd: 8,
+        php: 460,
+        badge: "House Brewed",
+        isDrink: true,
+        image: "assets/images/drinks/Smoked Peach Iced Tea.png",
+        shortDesc: "Tall glass of iced tea with fresh peach slices and a subtle hint of smoke",
+        longDesc: "Slow-steeped estate black tea sweetened with fire-grilled ripe orchard peaches and a delicate kiss of hickory smoke, served ice-cold with a caramelized peach slice and fresh thyme.",
+        portion: "14 oz tall glass over crystal ice",
+        ingredients: "Estate black tea leaves, fire-grilled ripe peaches, hickory-smoked honey syrup, lemon, fresh thyme",
+        pairing: "Charcoal Pork Ribs, Slow-Grilled Short Ribs, or Beef Skewers",
+        dietary: "Non-Alcoholic · Gluten-Free · Dairy-Free"
+      },
+      {
+        id: "citrus-cooler",
+        categoryKey: "drinks",
+        categoryLabel: "Zero-Proof & Refreshers",
+        name: "Citrus Cooler",
+        usd: 9,
+        php: 520,
+        badge: "Sparkling Mocktail",
+        isDrink: true,
+        image: "assets/images/drinks/Citrus Cooler.png",
+        shortDesc: "Bright sparkling mocktail cooler with layered orange, lemon, and lime slices",
+        longDesc: "A crisp, effervescent zero-proof cooler layered with freshly pressed Valencia orange, Eureka lemon, and Persian lime juices, botanical tonic, and aromatic rosemary over crystal ice.",
+        portion: "14 oz sleek highball mocktail",
+        ingredients: "Fresh orange, lemon & lime wheels, botanical citrus cordial, sparkling water, fresh rosemary sprig",
+        pairing: "Charred Salmon Fillet, Grilled Calamari, or Grilled Market Vegetables",
+        dietary: "Non-Alcoholic · Vegan · Gluten-Free"
+      }
+    ];
+
+    let currentCurrency = localStorage.getItem('valois_currency') || 'USD';
+    let activeModalItem = null;
+
+    function formatPrice(item, currency) {
+      if (currency === 'PHP') {
+        return '\u20B1' + item.php.toLocaleString('en-US');
+      }
+      return '$' + item.usd.toLocaleString('en-US');
+    }
+
+    function formatSecondaryPrice(item, currency) {
+      if (currency === 'PHP') {
+        return 'Approx. $' + item.usd + ' USD';
+      }
+      return 'Approx. \u20B1' + item.php.toLocaleString('en-US') + ' PHP';
+    }
+
+    function renderMenuCards() {
+      const grids = {
+        steaks: document.getElementById('grid-steaks'),
+        seafood: document.getElementById('grid-seafood'),
+        fire: document.getElementById('grid-fire'),
+        sides: document.getElementById('grid-sides'),
+        drinks: document.getElementById('grid-drinks')
+      };
+
+      Object.values(grids).forEach(g => { if (g) g.innerHTML = ''; });
+
+      MENU_ITEMS.forEach(item => {
+        const grid = grids[item.categoryKey];
+        if (!grid) return;
+
+        const article = document.createElement('article');
+        article.className = 'menu-item-card';
+        article.setAttribute('tabindex', '0');
+        article.setAttribute('role', 'button');
+        article.setAttribute('aria-label', `View photo and details for ${item.name}, ${formatPrice(item, currentCurrency)}`);
+        article.dataset.itemId = item.id;
+
+        article.innerHTML = `
+          <div class="menu-item-thumb-wrap">
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-top">
+              <h3>${item.name}</h3>
+              <strong class="menu-item-price" data-item-id="${item.id}">${formatPrice(item, currentCurrency)}</strong>
+            </div>
+            <p class="menu-item-desc">${item.shortDesc}</p>
+            <div class="menu-item-footer">
+              <span class="menu-badge ${item.isDrink ? 'badge-drink' : ''}">${item.badge}</span>
+              <span class="menu-click-hint">View dish &rarr;</span>
+            </div>
+          </div>
+        `;
+
+        article.addEventListener('click', () => openDishModal(item));
+        article.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openDishModal(item);
+          }
+        });
+
+        grid.appendChild(article);
+      });
+    }
+
+    function updateCurrencyDisplay(newCurrency) {
+      currentCurrency = newCurrency;
+      localStorage.setItem('valois_currency', newCurrency);
+
+      document.getElementById('btnUsd').classList.toggle('active', newCurrency === 'USD');
+      document.getElementById('btnPhp').classList.toggle('active', newCurrency === 'PHP');
+
+      const banner = document.getElementById('currencyRateBanner');
+      if (banner) {
+        banner.textContent = newCurrency === 'PHP'
+          ? 'Showing prices in Philippine Pesos (\u20B1 PHP) \u00B7 1 USD \u2248 \u20B158 PHP'
+          : 'Showing prices in US Dollars ($ USD) \u00B7 Toggle \u20B1 PHP anytime';
+      }
+
+      // Update all rendered card prices
+      MENU_ITEMS.forEach(item => {
+        const priceEl = document.querySelector(`.menu-item-price[data-item-id="${item.id}"]`);
+        if (priceEl) {
+          priceEl.textContent = formatPrice(item, currentCurrency);
+        }
+      });
+
+      // Update modal if open
+      if (activeModalItem) {
+        updateModalPrices(activeModalItem);
+      }
+    }
+
+    function updateModalPrices(item) {
+      document.getElementById('modalDishPricePrimary').textContent = formatPrice(item, currentCurrency);
+      document.getElementById('modalDishPriceSecondary').textContent = formatSecondaryPrice(item, currentCurrency);
+      const switchBtn = document.getElementById('modalCurrencySwitchBtn');
+      if (switchBtn) {
+        switchBtn.textContent = currentCurrency === 'USD' ? 'Switch to \u20B1 PHP' : 'Switch to $ USD';
+      }
+    }
+
+    function openDishModal(item) {
+      activeModalItem = item;
+      const backdrop = document.getElementById('dishModalBackdrop');
+      const img = document.getElementById('modalDishImg');
+      img.src = item.image;
+      img.alt = item.name;
+
+      document.getElementById('modalDishCategory').textContent = item.categoryLabel;
+      const badgeEl = document.getElementById('modalDishBadge');
+      badgeEl.textContent = item.badge;
+      badgeEl.className = 'menu-badge ' + (item.isDrink ? 'badge-drink' : '');
+
+      document.getElementById('modalDishTitle').textContent = item.name;
+      updateModalPrices(item);
+
+      document.getElementById('modalDishLongDesc').textContent = item.longDesc;
+      document.getElementById('modalDishPortion').textContent = item.portion;
+      document.getElementById('modalDishIngredients').textContent = item.ingredients;
+      document.getElementById('modalDishPairing').textContent = item.pairing;
+      document.getElementById('modalDishDietary').textContent = item.dietary;
+
+      const orderBtn = document.getElementById('modalOrderBtn');
+      orderBtn.href = `Valois's Curbside.html?item=${encodeURIComponent(item.name)}#order`;
+
+      backdrop.classList.add('is-open');
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDishModal() {
+      const backdrop = document.getElementById('dishModalBackdrop');
+      backdrop.classList.remove('is-open');
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeModalItem = null;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMenuCards();
+      updateCurrencyDisplay(currentCurrency);
+
+      // Currency toggle buttons
+      document.getElementById('btnUsd').addEventListener('click', () => updateCurrencyDisplay('USD'));
+      document.getElementById('btnPhp').addEventListener('click', () => updateCurrencyDisplay('PHP'));
+      document.getElementById('modalCurrencySwitchBtn').addEventListener('click', () => {
+        updateCurrencyDisplay(currentCurrency === 'USD' ? 'PHP' : 'USD');
+      });
+
+      // Category filtering
+      const tabs = document.querySelectorAll('.category-tab');
+      const sections = document.querySelectorAll('.menu-category-section');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.dataset.filter;
+          tabs.forEach(t => {
+            t.classList.toggle('active', t === tab);
+            t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+          });
+          sections.forEach(sec => {
+            if (filter === 'all' || sec.dataset.category === filter) {
+              sec.classList.remove('hidden-category');
+            } else {
+              sec.classList.add('hidden-category');
+            }
+          });
+        });
+      });
+
+      // Modal close listeners
+      document.getElementById('modalCloseBtn').addEventListener('click', closeDishModal);
+      document.getElementById('dishModalBackdrop').addEventListener('click', (e) => {
+        if (e.target.id === 'dishModalBackdrop') {
+          closeDishModal();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeDishModal();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

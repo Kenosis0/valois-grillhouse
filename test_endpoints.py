@@ -108,6 +108,27 @@ def main():
         "pickup_time": "6:00 PM",
         "order_details": "1 Steak Frites"
     }, 201)
+
+    # Test Delivery endpoint with valid data
+    success &= test_endpoint("Delivery (Valid)", "delivery", "POST", {
+        "customer_name": "Delivery Test",
+        "phone": "09171234567",
+        "delivery_address": "124 Ember Street, Apt 4B",
+        "delivery_time": "7:00 PM",
+        "order_details": "1x Prime Ribeye, 1x Old Fashioned",
+        "delivery_notes": "Leave at lobby reception"
+    }, 201)
+
+    # Test Delivery endpoint with missing address
+    success &= test_endpoint("Delivery (Missing Address)", "delivery", "POST", {
+        "customer_name": "Delivery Test",
+        "phone": "09171234567",
+        "delivery_time": "7:00 PM",
+        "order_details": "1x Prime Ribeye"
+    }, 400)
+
+    # Test Menu endpoint
+    success &= test_endpoint("Menu Items (GET)", "menu", "GET", None, 200)
     
     # Test each endpoint with malformed JSON
     print("\n--- Testing: Malformed JSON ---")

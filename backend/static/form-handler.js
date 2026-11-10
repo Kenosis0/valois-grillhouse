@@ -1,12 +1,13 @@
 /**
- * Shared form submission handler for all Valois Grillhouse forms.
- * Handles validation, submission, success/error feedback, and duplicate prevention.
+ * Shared form submission and mobile navigation handler for Valois Grillhouse.
+ * Handles validation, submission, success/error feedback, duplicate prevention,
+ * dynamic Curbside/Delivery mode switching, and mobile browser navigation.
  */
 
 class FormHandler {
   constructor(formId, endpoint, fieldMapping) {
     this.form = document.getElementById(formId);
-    this.endpoint = endpoint;
+    this.endpoint = this.resolveEndpoint(endpoint);
     this.fieldMapping = fieldMapping; // { htmlInputName: apiFieldName }
     this.isSubmitting = false;
     
@@ -16,6 +17,29 @@ class FormHandler {
     }
     
     this.init();
+  }
+  
+  /**
+   * Resolve API endpoint so it works on localhost, LAN mobile testing, or file://
+   */
+  resolveEndpoint(endpoint) {
+    try {
+      if (window.location.protocol.startsWith('http') && endpoint.includes('127.0.0.1:5000')) {
+        const host = window.location.hostname || '127.0.0.1';
+        return endpoint.replace('127.0.0.1', host);
+      }
+    } catch (e) {
+      // Fallback to original endpoint
+    }
+    return endpoint;
+  }
+
+  /**
+   * Update endpoint and field mapping dynamically (used by Curbside / Delivery toggle).
+   */
+  setConfig(endpoint, fieldMapping) {
+    this.endpoint = this.resolveEndpoint(endpoint);
+    this.fieldMapping = fieldMapping;
   }
   
   init() {
@@ -30,21 +54,26 @@ class FormHandler {
     const data = {};
     
     for (let [htmlName, htmlValue] of formData.entries()) {
-      const apiName = this.fieldMapping[htmlName] || htmlName;
-      data[apiName] = htmlValue.trim();
+      if (this.fieldMapping && !(htmlName in this.fieldMapping)) {
+        continue;
+      }
+      const apiName = (this.fieldMapping && this.fieldMapping[htmlName]) || htmlName;
+      data[apiName] = String(htmlValue).trim();
     }
     
     return data;
   }
   
   /**
-   * Validate required fields client-side.
+   * Validate required fields client-side based on active required inputs.
    */
-  validateClientSide(data, requiredFields) {
+  validateClientSide(data) {
     const errors = [];
-    for (let field of requiredFields) {
-      if (!data[field] || data[field].trim() === '') {
-        errors.push(`${field} is required`);
+    for (let [htmlName, apiName] of Object.entries(this.fieldMapping)) {
+      const fieldEl = this.form.elements[htmlName];
+      const isRequired = fieldEl ? fieldEl.required && !fieldEl.disabled : true;
+      if (isRequired && (!data[apiName] || data[apiName].trim() === '')) {
+        errors.push(`${apiName.replace(/_/g, ' ')} is required`);
       }
     }
     return errors;
@@ -54,19 +83,22 @@ class FormHandler {
    * Display validation error message to user.
    */
   showError(message) {
-    // Remove old error if exists
     const oldError = this.form.querySelector('.form-error');
     if (oldError) oldError.remove();
+    const oldSuccess = this.form.querySelector('.form-success');
+    if (oldSuccess) oldSuccess.remove();
     
     const errorDiv = document.createElement('div');
     errorDiv.className = 'form-error';
     errorDiv.style.cssText = `
-      color: #dc3545;
+      grid-column: 1 / -1;
+      color: #842029;
       background-color: #f8d7da;
-      border: 1px solid #f5c6cb;
+      border: 1px solid #f5c2c7;
       border-radius: 4px;
-      padding: 12px;
-      margin-bottom: 20px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
     `;
     errorDiv.textContent = message;
     
@@ -77,19 +109,22 @@ class FormHandler {
    * Display success message to user.
    */
   showSuccess(message) {
-    // Remove old success if exists
     const oldSuccess = this.form.querySelector('.form-success');
     if (oldSuccess) oldSuccess.remove();
+    const oldError = this.form.querySelector('.form-error');
+    if (oldError) oldError.remove();
     
     const successDiv = document.createElement('div');
     successDiv.className = 'form-success';
     successDiv.style.cssText = `
-      color: #155724;
-      background-color: #d4edda;
-      border: 1px solid #c3e6cb;
+      grid-column: 1 / -1;
+      color: #0f5132;
+      background-color: #d1e7dd;
+      border: 1px solid #badbcc;
       border-radius: 4px;
-      padding: 12px;
-      margin-bottom: 20px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
     `;
     successDiv.textContent = message;
     
@@ -101,15 +136,23 @@ class FormHandler {
    */
   disableForm() {
     const inputs = this.form.querySelectorAll('input, textarea, select, button');
-    inputs.forEach(input => input.disabled = true);
+    inputs.forEach(input => {
+      input.dataset.wasDisabled = input.disabled ? 'true' : 'false';
+      input.disabled = true;
+    });
   }
   
   /**
-   * Enable all form inputs after submission.
+   * Enable form inputs after submission, preserving intentionally disabled fields.
    */
   enableForm() {
     const inputs = this.form.querySelectorAll('input, textarea, select, button');
-    inputs.forEach(input => input.disabled = false);
+    inputs.forEach(input => {
+      if (input.dataset.wasDisabled !== 'true') {
+        input.disabled = false;
+      }
+      delete input.dataset.wasDisabled;
+    });
   }
   
   /**
@@ -117,6 +160,9 @@ class FormHandler {
    */
   clearForm() {
     this.form.reset();
+    if (typeof this.onReset === 'function') {
+      this.onReset();
+    }
   }
   
   /**
@@ -125,27 +171,22 @@ class FormHandler {
   async handleSubmit(e) {
     e.preventDefault();
     
-    // Prevent duplicate submissions
     if (this.isSubmitting) {
       return;
     }
     
-    // Collect and validate data
     const data = this.collectData();
-    const requiredFields = Object.values(this.fieldMapping);
-    const errors = this.validateClientSide(data, requiredFields);
+    const errors = this.validateClientSide(data);
     
     if (errors.length > 0) {
       this.showError(errors.join('; '));
       return;
     }
     
-    // Mark as submitting and disable form
     this.isSubmitting = true;
     this.disableForm();
     
     try {
-      // Send to backend
       const response = await fetch(this.endpoint, {
         method: 'POST',
         headers: {
@@ -157,23 +198,63 @@ class FormHandler {
       const result = await response.json();
       
       if (response.ok) {
-        // Success
         this.showSuccess(result.message || 'Form submitted successfully.');
         this.clearForm();
       } else {
-        // Error from server
         this.showError(result.error || 'An error occurred. Please try again.');
       }
     
     } catch (error) {
-      // Network or parsing error
-      this.showError('Network error. Please check your connection and try again.');
+      this.showError('Network error. Please make sure the backend server is running and try again.');
       console.error('Fetch error:', error);
     
     } finally {
-      // Re-enable form
       this.isSubmitting = false;
       this.enableForm();
     }
   }
 }
+
+/**
+ * Initialize responsive mobile navigation bar across all pages.
+ */
+function initMobileNav() {
+  const navbar = document.querySelector('.navbar');
+  const nav = navbar ? navbar.querySelector('nav') : null;
+  if (!navbar || !nav) return;
+
+  // Avoid duplicate button injection
+  if (navbar.querySelector('.nav-toggle')) return;
+
+  const toggleBtn = document.createElement('button');
+  toggleBtn.type = 'button';
+  toggleBtn.className = 'nav-toggle';
+  toggleBtn.setAttribute('aria-expanded', 'false');
+  toggleBtn.setAttribute('aria-label', 'Toggle navigation menu');
+  toggleBtn.innerHTML = '<span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>';
+
+  navbar.insertBefore(toggleBtn, nav);
+
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = navbar.classList.toggle('nav-open');
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close menu when clicking a link
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navbar.classList.contains('nav-open')) {
+      navbar.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initMobileNav);

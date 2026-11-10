@@ -1,22 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Order your Valois Grillhouse favorites for easy curbside pickup."><title>Valois's Curbside | Valois Grillhouse</title><link rel="stylesheet" href="styles.css"></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Order your Valois Grillhouse favorites for easy curbside pickup or hot doorstep delivery.">
+  <title>Curbside &amp; Delivery | Valois Grillhouse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-  <header class="navbar"><a class="brand" href="index.html" aria-label="Valois Grillhouse home"><span class="brand-mark">VG</span><span class="brand-copy"><strong>Valois</strong><small>GRILLHOUSE</small></span></a><nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="Reservation.html">Reservation</a></li><li><a href="Catering.html">Catering</a></li><li><a href="Valois's Curbside.html" aria-current="page">Curbside</a></li><li><a href="About.html">About</a></li><li><a href="Our Menu.html">Our Menu</a></li><li><a href="Gallery.html">Gallery</a></li><li><a href="Contact.html">Contact</a></li></ul></nav><a class="nav-cta" href="Reservation.html">Book a table <span aria-hidden="true">&#8599;</span></a></header>
+  <header class="navbar">
+    <a class="brand" href="index.html" aria-label="Valois Grillhouse home">
+      <span class="brand-mark">VG</span>
+      <span class="brand-copy"><strong>Valois</strong><small>GRILLHOUSE</small></span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Reservation.html">Reservation</a></li>
+        <li><a href="Catering.html">Catering</a></li>
+        <li><a href="Valois's Curbside.html" aria-current="page">Curbside &amp; Delivery</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Our Menu.html">Our Menu</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="Reservation.html">Book a table <span aria-hidden="true">&#8599;</span></a>
+  </header>
+
   <main>
-    <section class="page-hero" style="--page-image: url('assets/images/foods/Steak Frites.jpg')"><div class="container"><p class="eyebrow">Dinner, on your time</p><h1>Fire to go.</h1><p>Order your Valois favorites ahead, pull into the pickup spot, and bring a little grillhouse energy home.</p></div></section>
-    <section class="content-section"><div class="container"><div class="section-heading"><div><p class="eyebrow eyebrow-dark">How it works</p><h2>Three easy moves.</h2></div><a class="button button-primary" href="#order">Start your order <span aria-hidden="true">&#8595;</span></a></div><div class="service-grid"><article class="service-card"><span>01 / CHOOSE</span><h3>Pick your plates</h3><p>Build a meal from our curbside favorites, with the grill doing the heavy lifting.</p></article><article class="service-card"><span>02 / SCHEDULE</span><h3>Set a pickup time</h3><p>We will have your order hot and ready during our Tuesday through Sunday service.</p></article><article class="service-card"><span>03 / ENJOY</span><h3>Pull up and go</h3><p>Park in the Valois pickup spot and call the number in your confirmation. We will bring it out.</p></article></div></div></section>
-    <section id="order" class="content-section" style="background: var(--cream)"><div class="container two-column"><div class="section-intro"><p class="eyebrow eyebrow-dark">Curbside favorites</p><h2>All the comfort.<br><em>None of the fuss.</em></h2><p>Our take-home menu is built to travel well without losing the details that make a Valois dinner worth remembering.</p><div class="card-grid"><article class="service-card"><h3>Steak Frites</h3><p>Garlic butter, crisp potatoes</p></article><article class="service-card"><h3>Ribeye Dinner</h3><p>House jus, seasonal sides</p></article></div></div><div class="paper-panel"><form id="curbsideForm" class="form-grid" action="#" method="post"><div class="form-field full"><label for="pickup-name">Name</label><input id="pickup-name" name="name" type="text" autocomplete="name" required></div><div class="form-field"><label for="pickup-time">Pickup time</label><select id="pickup-time" name="time" required><option value="">Choose a time</option><option>5:30 PM</option><option>6:30 PM</option><option>7:30 PM</option><option>8:30 PM</option></select></div><div class="form-field"><label for="pickup-phone">Phone</label><input id="pickup-phone" name="phone" type="tel" autocomplete="tel" required></div><div class="form-field full"><label for="pickup-order">Your order</label><textarea id="pickup-order" name="order" placeholder="Tell us what you would like to order" required></textarea></div><div class="form-actions"><button class="button button-primary" type="submit">Request curbside order <span aria-hidden="true">&#8599;</span></button></div></form></div></div></section>
-  </main><footer class="site-footer"><div class="container footer-inner"><span>Valois Grillhouse</span><span>Fire-kissed food. Thoughtful hospitality.</span><a href="Contact.html">Contact us &#8599;</a></div></footer>
+    <section class="page-hero" style="--page-image: url('assets/images/foods/Legend/Steak Frites.jpg')">
+      <div class="container">
+        <p class="eyebrow">Dinner, on your terms</p>
+        <h1>Fire to go,<br><em>or to your door.</em></h1>
+        <p>Choose quick curbside pickup or hot doorstep delivery—bringing wood-fired steaks, sides, and craft drinks straight home.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">How it works</p>
+            <h2>Two ways to bring Valois home.</h2>
+          </div>
+          <a class="button button-primary" href="#order">Start your order <span aria-hidden="true">&#8595;</span></a>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span>01 / CHOOSE PLATES &amp; DRINKS</span>
+            <h3>Build your meal</h3>
+            <p>Pick your favorite wood-fired steaks, seafood, sides, and bottled house cocktails or refreshers.</p>
+          </article>
+          <article class="service-card">
+            <span>02 / CURBSIDE OR DELIVERY</span>
+            <h3>Select how you receive it</h3>
+            <p>Toggle between pulling into our dedicated Curbside Pickup spot or having a Valois courier deliver to your door.</p>
+          </article>
+          <article class="service-card">
+            <span>03 / HOT &amp; ON TIME</span>
+            <h3>Enjoy at home</h3>
+            <p>Packed in insulated, vented containers so crusts stay seared, fries stay crisp, and drinks stay chilled.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="content-section" style="background: var(--cream)">
+      <div class="container two-column">
+        <div class="section-intro">
+          <p class="eyebrow eyebrow-dark">Take-home &amp; delivery</p>
+          <h2>All the comfort.<br><em>None of the fuss.</em></h2>
+          <p>Our take-home and delivery menu is engineered to travel well without losing the details that make a Valois dinner worth remembering.</p>
+
+          <!-- Currency Toggle on Curbside/Delivery Page -->
+          <div class="currency-switcher-wrap" style="margin: 22px 0;">
+            <span class="currency-label">Show prices in:</span>
+            <div class="currency-toggle" role="group" aria-label="Currency selector">
+              <button type="button" class="currency-btn active" id="orderBtnUsd">$ USD</button>
+              <button type="button" class="currency-btn" id="orderBtnPhp">&#8369; PHP</button>
+            </div>
+          </div>
+
+          <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+            <article class="service-card" style="background: var(--paper);">
+              <span>CURBSIDE PICKUP</span>
+              <h3 style="margin-top: 10px; font-size: 1.3rem;">No Fee &middot; 25 Mins</h3>
+              <p>Park at 124 Ember Street and call on arrival—we bring it right to your car.</p>
+            </article>
+            <article class="service-card" style="background: var(--paper);">
+              <span>HOME DELIVERY</span>
+              <h3 style="margin-top: 10px; font-size: 1.3rem;" id="deliveryFeeCardTitle">$5 Fee &middot; 35–45 Mins</h3>
+              <p>Insulated courier delivery within 8 km during Tuesday–Sunday dinner hours.</p>
+            </article>
+          </div>
+
+          <!-- Quick Add Popular Items -->
+          <div class="quick-add-box">
+            <div class="quick-add-header">
+              <h3>Quick-add to your order</h3>
+              <a class="text-link" href="Our Menu.html">Browse full menu <span>&#8594;</span></a>
+            </div>
+            <div class="quick-add-pills" id="quickAddPills">
+              <button type="button" class="quick-add-pill" data-name="Prime Ribeye" data-usd="42" data-php="2450">+ Prime Ribeye ($42)</button>
+              <button type="button" class="quick-add-pill" data-name="Classic T-Bone" data-usd="48" data-php="2790">+ Classic T-Bone ($48)</button>
+              <button type="button" class="quick-add-pill" data-name="Charcoal Pork Ribs" data-usd="30" data-php="1750">+ Pork Ribs ($30)</button>
+              <button type="button" class="quick-add-pill" data-name="Charred Salmon Fillet" data-usd="32" data-php="1860">+ Charred Salmon ($32)</button>
+              <button type="button" class="quick-add-pill" data-name="Steak Frites" data-usd="12" data-php="690">+ Steak Frites ($12)</button>
+              <button type="button" class="quick-add-pill" data-name="Old Fashioned" data-usd="16" data-php="930">+ Old Fashioned ($16)</button>
+              <button type="button" class="quick-add-pill" data-name="Red Wine Sangria" data-usd="14" data-php="820">+ Sangria ($14)</button>
+              <button type="button" class="quick-add-pill" data-name="Berry Lemonade" data-usd="8" data-php="460">+ Berry Lemonade ($8)</button>
+              <button type="button" class="quick-add-pill" data-name="Smoked Peach Iced Tea" data-usd="8" data-php="460">+ Smoked Peach Tea ($8)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-panel" style="background: var(--paper);">
+          <p class="eyebrow eyebrow-dark" id="formModeEyebrow">Order Online</p>
+          <h3 style="font-size: 1.85rem; margin-bottom: 16px;" id="formModeHeading">Choose Curbside or Delivery</h3>
+
+          <!-- Service Mode Toggle: Curbside vs Delivery -->
+          <div class="order-mode-tabs" role="tablist" aria-label="Choose Curbside Pickup or Home Delivery">
+            <button type="button" class="order-mode-tab active" id="tabCurbside" data-mode="curbside" role="tab" aria-selected="true">
+              <strong>Curbside Pickup</strong>
+              <small>Pull up outside &middot; Ready in 25 mins</small>
+            </button>
+            <button type="button" class="order-mode-tab" id="tabDelivery" data-mode="delivery" role="tab" aria-selected="false">
+              <strong>Home Delivery</strong>
+              <small>Brought to your door &middot; 35–45 mins</small>
+            </button>
+          </div>
+
+          <form id="curbsideForm" class="form-grid" action="#" method="post">
+            <div class="form-field full">
+              <label for="pickup-name">Your Name</label>
+              <input id="pickup-name" name="name" type="text" autocomplete="name" placeholder="Full name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="pickup-time" id="timeFieldLabel">Pickup Time</label>
+              <select id="pickup-time" name="time" required>
+                <option value="">Choose a time</option>
+                <option>5:30 PM</option>
+                <option>6:00 PM</option>
+                <option>6:30 PM</option>
+                <option>7:00 PM</option>
+                <option>7:30 PM</option>
+                <option>8:00 PM</option>
+                <option>8:30 PM</option>
+                <option>9:00 PM</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="pickup-phone">Phone Number</label>
+              <input id="pickup-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 018-7420 or +63" required>
+            </div>
+
+            <!-- Delivery-only fields (shown when Home Delivery is active) -->
+            <div class="form-field full hidden-field" id="deliveryAddressWrap">
+              <label for="delivery-address">Delivery Address</label>
+              <input id="delivery-address" name="address" type="text" autocomplete="street-address" placeholder="House/Unit No., Street, Barangay / Neighborhood, City" disabled>
+            </div>
+
+            <div class="form-field full hidden-field" id="deliveryNotesWrap">
+              <label for="delivery-notes">Delivery Instructions / Landmark (Optional)</label>
+              <input id="delivery-notes" name="notes" type="text" placeholder="Gate code, landmark, or drop-off instructions" disabled>
+            </div>
+
+            <div class="form-field full">
+              <label for="pickup-order">Your Order (Dishes &amp; Drinks)</label>
+              <textarea id="pickup-order" name="order" placeholder="Tell us what you would like to order (or tap the quick-add items on the left)" required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="button button-primary" id="submitOrderBtn" type="submit" style="width: 100%;">
+                Request curbside order <span aria-hidden="true">&#8599;</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Valois Grillhouse</span>
+      <span>Fire-kissed food. Thoughtful hospitality.</span>
+      <a href="Contact.html">Contact us &#8599;</a>
+    </div>
+  </footer>
+
   <script src="backend/static/form-handler.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      new FormHandler('curbsideForm', 'http://127.0.0.1:5000/api/curbside', {
-        'name': 'customer_name',
-        'time': 'pickup_time',
-        'phone': 'phone',
-        'order': 'order_details'
+      const curbsideConfig = {
+        endpoint: 'http://127.0.0.1:5000/api/curbside',
+        mapping: {
+          'name': 'customer_name',
+          'time': 'pickup_time',
+          'phone': 'phone',
+          'order': 'order_details'
+        }
+      };
+
+      const deliveryConfig = {
+        endpoint: 'http://127.0.0.1:5000/api/delivery',
+        mapping: {
+          'name': 'customer_name',
+          'time': 'delivery_time',
+          'phone': 'phone',
+          'address': 'delivery_address',
+          'notes': 'delivery_notes',
+          'order': 'order_details'
+        }
+      };
+
+      const handler = new FormHandler('curbsideForm', curbsideConfig.endpoint, curbsideConfig.mapping);
+
+      const tabCurbside = document.getElementById('tabCurbside');
+      const tabDelivery = document.getElementById('tabDelivery');
+      const addressWrap = document.getElementById('deliveryAddressWrap');
+      const notesWrap = document.getElementById('deliveryNotesWrap');
+      const addressInput = document.getElementById('delivery-address');
+      const notesInput = document.getElementById('delivery-notes');
+      const timeLabel = document.getElementById('timeFieldLabel');
+      const submitBtn = document.getElementById('submitOrderBtn');
+      const orderTextarea = document.getElementById('pickup-order');
+
+      function setOrderMode(mode) {
+        const isDelivery = mode === 'delivery';
+        tabCurbside.classList.toggle('active', !isDelivery);
+        tabCurbside.setAttribute('aria-selected', !isDelivery ? 'true' : 'false');
+        tabDelivery.classList.toggle('active', isDelivery);
+        tabDelivery.setAttribute('aria-selected', isDelivery ? 'true' : 'false');
+
+        addressWrap.classList.toggle('hidden-field', !isDelivery);
+        notesWrap.classList.toggle('hidden-field', !isDelivery);
+        addressInput.disabled = !isDelivery;
+        addressInput.required = isDelivery;
+        notesInput.disabled = !isDelivery;
+
+        timeLabel.textContent = isDelivery ? 'Preferred Delivery Time' : 'Pickup Time';
+        submitBtn.innerHTML = isDelivery
+          ? 'Request delivery order <span aria-hidden="true">&#8599;</span>'
+          : 'Request curbside order <span aria-hidden="true">&#8599;</span>';
+
+        if (isDelivery) {
+          handler.setConfig(deliveryConfig.endpoint, deliveryConfig.mapping);
+        } else {
+          handler.setConfig(curbsideConfig.endpoint, curbsideConfig.mapping);
+        }
+      }
+
+      tabCurbside.addEventListener('click', () => setOrderMode('curbside'));
+      tabDelivery.addEventListener('click', () => setOrderMode('delivery'));
+
+      // Currency toggle on Order page
+      let currency = localStorage.getItem('valois_currency') || 'USD';
+      const btnUsd = document.getElementById('orderBtnUsd');
+      const btnPhp = document.getElementById('orderBtnPhp');
+      const feeTitle = document.getElementById('deliveryFeeCardTitle');
+      const pills = document.querySelectorAll('.quick-add-pill');
+
+      function applyOrderCurrency(curr) {
+        currency = curr;
+        localStorage.setItem('valois_currency', curr);
+        btnUsd.classList.toggle('active', curr === 'USD');
+        btnPhp.classList.toggle('active', curr === 'PHP');
+        feeTitle.innerHTML = curr === 'PHP'
+          ? '&#8369;290 Fee &middot; 35–45 Mins'
+          : '$5 Fee &middot; 35–45 Mins';
+
+        pills.forEach(pill => {
+          const name = pill.dataset.name;
+          const priceStr = curr === 'PHP'
+            ? '\u20B1' + Number(pill.dataset.php).toLocaleString('en-US')
+            : '$' + pill.dataset.usd;
+          pill.textContent = `+ ${name} (${priceStr})`;
+        });
+      }
+
+      btnUsd.addEventListener('click', () => applyOrderCurrency('USD'));
+      btnPhp.addEventListener('click', () => applyOrderCurrency('PHP'));
+      applyOrderCurrency(currency);
+
+      // Quick-add pill click handler
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const itemText = `1x ${pill.dataset.name}`;
+          const currentVal = orderTextarea.value.trim();
+          orderTextarea.value = currentVal ? `${currentVal}, ${itemText}` : itemText;
+          orderTextarea.focus();
+        });
       });
+
+      // Pre-fill item if navigated from Our Menu modal (?item=...)
+      const params = new URLSearchParams(window.location.search);
+      const prefillItem = params.get('item');
+      if (prefillItem) {
+        orderTextarea.value = `1x ${prefillItem}`;
+      }
+      if (params.get('mode') === 'delivery') {
+        setOrderMode('delivery');
+      }
     });
   </script>
 </body>

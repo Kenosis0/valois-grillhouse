@@ -47,6 +47,19 @@ CREATE TABLE IF NOT EXISTS curbside_orders (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Delivery Orders Table
+CREATE TABLE IF NOT EXISTS delivery_orders (
+  delivery_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  customer_name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  delivery_address TEXT NOT NULL,
+  delivery_time TEXT NOT NULL,
+  order_details TEXT NOT NULL,
+  delivery_notes TEXT,
+  status TEXT DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Menu Items Table (for future use / documentation)
 CREATE TABLE IF NOT EXISTS menu_items (
   menu_item_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -64,3 +77,4 @@ CREATE INDEX IF NOT EXISTS idx_contact_email ON contact_inquiries(email);
 CREATE INDEX IF NOT EXISTS idx_reservations_date ON reservations(reservation_date);
 CREATE INDEX IF NOT EXISTS idx_catering_date ON catering_requests(event_date);
 CREATE INDEX IF NOT EXISTS idx_curbside_time ON curbside_orders(pickup_time);
+CREATE INDEX IF NOT EXISTS idx_delivery_time ON delivery_orders(delivery_time);
